@@ -1,0 +1,60 @@
+{% load static %}
+{% include 'base.html'%}
+{% include 'navigation.html'%}
+{% block body %}
+
+{% if error == "no" %}
+<script>
+  alert('Record save Successfully');
+  window.location="{% url 'view_appointment' %}";
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+  alert(' Invalid record,Try Again');
+
+</script>
+{% endif %}
+
+
+
+<div class="container" style="margin-top:50px">
+  <h1 class="text-center">Add Appointment</h1>
+  <br><br>
+    <form action="#" method="POST">
+      {% csrf_token %}
+
+  <label>Doctor Name</label>
+   <select name="doctor" class="form-control">
+     {% for i in doctor %}
+     <option value="{{i.name}}">{{i.name}}</option>
+     {% endfor %}
+   </select>
+      <br><br>
+
+     <label>Patient Name</label>
+   <select name="patient" class="form-control">
+     {% for i in patient %}
+     <option value="{{i.name}}">{{i.name}}</option>
+     {% endfor %}
+   </select>
+       <br><br>
+
+
+  <div class="form-outline mb-4">
+    <input type="date" id="form2Example2"  name="date" class="form-control" />
+    <label class="form-label" for="form2Example2">Date</label>
+  </div>
+    <div class="form-outline mb-4">
+    <input type="time" id="form2Example3"  name="time" class="form-control" />
+    <label class="form-label" for="form2Example2">Time</label>
+  </div>
+  <!-- Submit button -->
+  <input type="submit" value="sumbit" class=" form-control btn btn-primary ">
+
+</form>
+</div>
+
+
+{% endblock body %}

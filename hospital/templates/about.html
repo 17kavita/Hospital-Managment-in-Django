@@ -1,0 +1,21 @@
+{% load static %}
+{% include 'base.html'%}
+{% include 'navigation.html'%}
+{% block body %}
+<div class="container"style="margin-top:50px">
+    <h2 class="text-center">About Us</h2>
+    <br><br><br><br>
+    <div class="row">
+        <div class="col-sm-4 text-center">
+          <img src="{% static 'image/3.jpg' %}"width="300" height="200" class="img-responsive">
+        </div>
+        <div class="col-sm-8 font-weight-bold mt-5">
+            hellow Friend...<br>
+            This is a simple hospital Project Management by
+            kavita suman.
+
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

@@ -1,0 +1,49 @@
+
+{% load static %}
+{% include 'base.html'%}
+{% include 'navigation.html'%}
+{% block body %}
+
+{% if error == "no" %}
+<script>
+  alert('Record save Successfully');
+  window.location="{% url 'add_doctor' %}";
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+  alert(' Invalid Login id,Try Again');
+
+</script>
+{% endif %}
+
+
+
+<div class="container" style="margin-top:50px">
+  <h1 class="text-center">Add Doctor</h1>
+  <br><br>
+    <form action="#" method="POST">
+      {% csrf_token %}
+
+  <div class="form-outline mb-4">
+    <input type="text" id="form2Example1" name="name" class="form-control" />
+    <label class="form-label" for="form2Example1">Doctor Name</label>
+  </div>
+
+  <div class="form-outline mb-4">
+    <input type="text" id="form2Example2"  name="phone" class="form-control" />
+    <label class="form-label" for="form2Example2">Phone</label>
+  </div>
+    <div class="form-outline mb-4">
+    <input type="text" id="form2Example3"  name="special" class="form-control" />
+    <label class="form-label" for="form2Example2">Special</label>
+  </div>
+  <!-- Submit button -->
+  <input type="submit" value="sumbit" class=" form-control btn btn-primary ">
+
+</form>
+</div>
+
+
+{% endblock body %}
